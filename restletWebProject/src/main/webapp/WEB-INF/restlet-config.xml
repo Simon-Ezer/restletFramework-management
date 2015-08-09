@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="router" name="router" class="org.restlet.ext.spring.SpringBeanRouter"/>
+
+    <bean id="springComponent" name="springComponent" class="org.restlet.ext.spring.SpringComponent">
+        <property name="defaultTarget" ref="baseCampApplication"/>
+    </bean>
+
+    <bean id="baseCampApplication" name="baseCampApplication"
+          class="com.simon.restletframework.BaseCampApplication">
+        <property name="inboundRoot" ref="router"/>
+    </bean>
+
+</beans>
